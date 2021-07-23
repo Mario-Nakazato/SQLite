@@ -86,7 +86,7 @@ namespace SQLite
             // labelmsg
             // 
             this.labelmsg.AutoSize = true;
-            this.labelmsg.Location = new System.Drawing.Point(12, 80);
+            this.labelmsg.Location = new System.Drawing.Point(12, 66);
             this.labelmsg.Name = "labelmsg";
             this.labelmsg.Size = new System.Drawing.Size(10, 13);
             this.labelmsg.TabIndex = 1;
@@ -128,6 +128,7 @@ namespace SQLite
             this.buttonTabela.TabIndex = 5;
             this.buttonTabela.Text = "Tabela";
             this.buttonTabela.UseVisualStyleBackColor = true;
+            this.buttonTabela.Click += new System.EventHandler(this.buttonTabela_Click);
             // 
             // buttonInserir
             // 

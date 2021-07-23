@@ -53,5 +53,34 @@ namespace SQLite
             }
 
         }
+
+        private void buttonTabela_Click(object sender, EventArgs e)
+        {
+            string bancoDados = Application.StartupPath + @"\SQLite.db";
+            string conexao = @"Data Source = " + bancoDados + "; Version = 3";
+
+            labelmsg.Text = ": ";
+
+            SQLiteConnection conectar = new SQLiteConnection(conexao);
+
+            try
+            {
+                conectar.Open();
+                SQLiteCommand comando = new SQLiteCommand();
+                comando.Connection = conectar;
+                comando.CommandText = "CREATE TABLE pessoa ( id INT NOT NULL PRIMARY KEY, nome VARCHAR(64), sobrenome VARCHAR(64))";
+                comando.ExecuteNonQuery();
+                labelmsg.Text = labelmsg.Text + "Tabela criada SQLite";
+                comando.Dispose();
+            }
+            catch (Exception ex)
+            {
+                labelmsg.Text = labelmsg.Text + "Erro ao criar tabela SQLite " + ex.Message;
+            }
+            finally
+            {
+                conectar.Close();
+            }
+        }
     }
 }
