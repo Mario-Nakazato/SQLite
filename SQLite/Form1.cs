@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using System.IO; //File
+
 // SQLite
 using System.Data.SQLite;
 
@@ -18,6 +20,38 @@ namespace SQLite
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void buttonConectar_Click(object sender, EventArgs e)
+        {
+            string bancoDados = Application.StartupPath + @"\SQLite.db";
+            string conexao = @"Data Source = " + bancoDados + "; Version = 3";
+
+            labelmsg.Text = ": ";
+
+            if (!File.Exists(bancoDados))
+            {
+                SQLiteConnection.CreateFile(bancoDados);
+                labelmsg.Text = labelmsg.Text +"Criando banco de dados SQLite, ";
+            }
+
+            SQLiteConnection conectar = new SQLiteConnection(conexao);
+
+            try
+            {
+                conectar.Open();
+                labelmsg.Text = labelmsg.Text + "Conectado SQLite";
+            }
+            catch (Exception ex)
+            {
+                labelmsg.Text = labelmsg.Text + "Erro ao conectar SQLite \n" + ex;
+                //throw;
+            }
+            finally
+            {
+                conectar.Close();
+            }
+
         }
     }
 }
