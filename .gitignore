@@ -1,2 +1,7 @@
 #.gitignore
 .vs
+SQLite/bin/Debug/SQLite.db
+SQLite/obj/Debug/DesignTimeResolveAssemblyReferences.cache
+SQLite/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+SQLite/obj/Debug/SQLite.csproj.AssemblyReference.cache
+SQLite/obj/Debug/SQLite.csproj.GenerateResource.cache
