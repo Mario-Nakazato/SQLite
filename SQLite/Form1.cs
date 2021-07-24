@@ -115,5 +115,49 @@ namespace SQLite
                 conectar.Close();
             }
         }
+
+        private void buttonProcurar_Click(object sender, EventArgs e)
+        {
+            dataGridViewSQLite.Rows.Clear();
+
+            string bancoDados = Application.StartupPath + @"\SQLite.db";
+            string conexao = @"Data Source = " + bancoDados + "; Version = 3";
+
+            labelmsg.Text = ": ";
+
+            SQLiteConnection conectar = new SQLiteConnection(conexao);
+
+            try
+            {
+                string query = "SELECT * FROM pessoa";
+
+                if (textBoxNome.Text != "")
+                {
+                    query = "SELECT * FROM pessoa WHERE nome LIKE '" +textBoxNome.Text +"'";
+                }
+
+                DataTable dados = new DataTable();
+
+                SQLiteDataAdapter adaptador = new SQLiteDataAdapter(query, conexao);
+
+                conectar.Open();
+
+                adaptador.Fill(dados);
+
+                foreach (DataRow linha in dados.Rows)
+                {
+                    dataGridViewSQLite.Rows.Add(linha.ItemArray);
+                }
+            }
+            catch (Exception ex)
+            {
+                dataGridViewSQLite.Rows.Clear();
+                labelmsg.Text = labelmsg.Text + "Erro ao inserir registro SQLite " + ex.Message;
+            }
+            finally
+            {
+                conectar.Close();
+            }
+        }
     }
 }
