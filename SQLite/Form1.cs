@@ -159,5 +159,37 @@ namespace SQLite
                 conectar.Close();
             }
         }
+
+        private void buttonExcluir_Click(object sender, EventArgs e)
+        {
+            string bancoDados = Application.StartupPath + @"\SQLite.db";
+            string conexao = @"Data Source = " + bancoDados + "; Version = 3";
+
+            labelmsg.Text = ": ";
+
+            SQLiteConnection conectar = new SQLiteConnection(conexao);
+
+            try
+            {
+                conectar.Open();
+                SQLiteCommand comando = new SQLiteCommand();
+                comando.Connection = conectar;
+
+                int id = (int)dataGridViewSQLite.SelectedRows[0].Cells[0].Value;
+
+                comando.CommandText = "DELETE FROM pessoa WHERE id = '" +id +"'";
+                comando.ExecuteNonQuery();
+                labelmsg.Text = labelmsg.Text + "Registro excluido SQLite";
+                comando.Dispose();
+            }
+            catch (Exception ex)
+            {
+                labelmsg.Text = labelmsg.Text + "Erro ao excluir registro SQLite " + ex.Message;
+            }
+            finally
+            {
+                conectar.Close();
+            }
+        }
     }
 }

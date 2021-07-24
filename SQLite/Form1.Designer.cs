@@ -172,6 +172,7 @@ namespace SQLite
             this.buttonExcluir.TabIndex = 4;
             this.buttonExcluir.Text = "Excluir";
             this.buttonExcluir.UseVisualStyleBackColor = true;
+            this.buttonExcluir.Click += new System.EventHandler(this.buttonExcluir_Click);
             // 
             // buttonEditar
             // 
