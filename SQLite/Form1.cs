@@ -191,5 +191,42 @@ namespace SQLite
                 conectar.Close();
             }
         }
+
+        private void buttonEditar_Click(object sender, EventArgs e)
+        {
+            string bancoDados = Application.StartupPath + @"\SQLite.db";
+            string conexao = @"Data Source = " + bancoDados + "; Version = 3";
+
+            labelmsg.Text = ": ";
+
+            SQLiteConnection conectar = new SQLiteConnection(conexao);
+
+            try
+            {
+                conectar.Open();
+                SQLiteCommand comando = new SQLiteCommand();
+                comando.Connection = conectar;
+
+                int id = (int)dataGridViewSQLite.SelectedRows[0].Cells[0].Value;
+                string nome = textBoxNome.Text;
+                string sobrenome = textBoxSobrenome.Text;
+
+                string query = "UPDATE pessoa SET nome = '" +nome +"', sobrenome = '" +sobrenome
+                    +"' WHERE id LIKE '" +id +"'";
+
+                comando.CommandText = query;
+                comando.ExecuteNonQuery();
+                labelmsg.Text = labelmsg.Text + "Registro editado SQLite";
+                comando.Dispose();
+            }
+            catch (Exception ex)
+            {
+                labelmsg.Text = labelmsg.Text + "Erro ao editar registro SQLite " + ex.Message;
+            }
+            finally
+            {
+                conectar.Close();
+            }
+        }
     }
 }

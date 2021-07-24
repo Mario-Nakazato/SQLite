@@ -61,6 +61,7 @@ namespace SQLite
             this.sobrenome});
             this.dataGridViewSQLite.Location = new System.Drawing.Point(12, 113);
             this.dataGridViewSQLite.Name = "dataGridViewSQLite";
+            this.dataGridViewSQLite.ReadOnly = true;
             this.dataGridViewSQLite.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewSQLite.Size = new System.Drawing.Size(600, 196);
             this.dataGridViewSQLite.TabIndex = 8;
@@ -182,6 +183,7 @@ namespace SQLite
             this.buttonEditar.TabIndex = 5;
             this.buttonEditar.Text = "Editar";
             this.buttonEditar.UseVisualStyleBackColor = true;
+            this.buttonEditar.Click += new System.EventHandler(this.buttonEditar_Click);
             // 
             // Form1
             // 
