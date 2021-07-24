@@ -63,7 +63,7 @@ namespace SQLite
             this.dataGridViewSQLite.Name = "dataGridViewSQLite";
             this.dataGridViewSQLite.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewSQLite.Size = new System.Drawing.Size(600, 196);
-            this.dataGridViewSQLite.TabIndex = 0;
+            this.dataGridViewSQLite.TabIndex = 8;
             // 
             // id
             // 
@@ -89,7 +89,7 @@ namespace SQLite
             this.labelmsg.Location = new System.Drawing.Point(12, 66);
             this.labelmsg.Name = "labelmsg";
             this.labelmsg.Size = new System.Drawing.Size(10, 13);
-            this.labelmsg.TabIndex = 1;
+            this.labelmsg.TabIndex = 11;
             this.labelmsg.Text = ":";
             // 
             // labelNome
@@ -98,7 +98,7 @@ namespace SQLite
             this.labelNome.Location = new System.Drawing.Point(12, 14);
             this.labelNome.Name = "labelNome";
             this.labelNome.Size = new System.Drawing.Size(35, 13);
-            this.labelNome.TabIndex = 2;
+            this.labelNome.TabIndex = 9;
             this.labelNome.Text = "Nome";
             // 
             // labelSobrenome
@@ -107,7 +107,7 @@ namespace SQLite
             this.labelSobrenome.Location = new System.Drawing.Point(12, 40);
             this.labelSobrenome.Name = "labelSobrenome";
             this.labelSobrenome.Size = new System.Drawing.Size(61, 13);
-            this.labelSobrenome.TabIndex = 3;
+            this.labelSobrenome.TabIndex = 10;
             this.labelSobrenome.Text = "Sobrenome";
             // 
             // buttonConectar
@@ -115,7 +115,7 @@ namespace SQLite
             this.buttonConectar.Location = new System.Drawing.Point(355, 9);
             this.buttonConectar.Name = "buttonConectar";
             this.buttonConectar.Size = new System.Drawing.Size(75, 23);
-            this.buttonConectar.TabIndex = 4;
+            this.buttonConectar.TabIndex = 0;
             this.buttonConectar.Text = "Conectar";
             this.buttonConectar.UseVisualStyleBackColor = true;
             this.buttonConectar.Click += new System.EventHandler(this.buttonConectar_Click);
@@ -125,7 +125,7 @@ namespace SQLite
             this.buttonTabela.Location = new System.Drawing.Point(355, 35);
             this.buttonTabela.Name = "buttonTabela";
             this.buttonTabela.Size = new System.Drawing.Size(75, 23);
-            this.buttonTabela.TabIndex = 5;
+            this.buttonTabela.TabIndex = 1;
             this.buttonTabela.Text = "Tabela";
             this.buttonTabela.UseVisualStyleBackColor = true;
             this.buttonTabela.Click += new System.EventHandler(this.buttonTabela_Click);
@@ -135,16 +135,17 @@ namespace SQLite
             this.buttonInserir.Location = new System.Drawing.Point(436, 9);
             this.buttonInserir.Name = "buttonInserir";
             this.buttonInserir.Size = new System.Drawing.Size(75, 23);
-            this.buttonInserir.TabIndex = 6;
+            this.buttonInserir.TabIndex = 2;
             this.buttonInserir.Text = "Inserir";
             this.buttonInserir.UseVisualStyleBackColor = true;
+            this.buttonInserir.Click += new System.EventHandler(this.buttonInserir_Click);
             // 
             // buttonProcurar
             // 
             this.buttonProcurar.Location = new System.Drawing.Point(436, 35);
             this.buttonProcurar.Name = "buttonProcurar";
             this.buttonProcurar.Size = new System.Drawing.Size(75, 23);
-            this.buttonProcurar.TabIndex = 7;
+            this.buttonProcurar.TabIndex = 3;
             this.buttonProcurar.Text = "Procurar";
             this.buttonProcurar.UseVisualStyleBackColor = true;
             // 
@@ -153,21 +154,21 @@ namespace SQLite
             this.textBoxNome.Location = new System.Drawing.Point(53, 11);
             this.textBoxNome.Name = "textBoxNome";
             this.textBoxNome.Size = new System.Drawing.Size(268, 20);
-            this.textBoxNome.TabIndex = 8;
+            this.textBoxNome.TabIndex = 6;
             // 
             // textBoxSobrenome
             // 
             this.textBoxSobrenome.Location = new System.Drawing.Point(79, 37);
             this.textBoxSobrenome.Name = "textBoxSobrenome";
             this.textBoxSobrenome.Size = new System.Drawing.Size(242, 20);
-            this.textBoxSobrenome.TabIndex = 9;
+            this.textBoxSobrenome.TabIndex = 7;
             // 
             // buttonExcluir
             // 
             this.buttonExcluir.Location = new System.Drawing.Point(517, 9);
             this.buttonExcluir.Name = "buttonExcluir";
             this.buttonExcluir.Size = new System.Drawing.Size(75, 23);
-            this.buttonExcluir.TabIndex = 10;
+            this.buttonExcluir.TabIndex = 4;
             this.buttonExcluir.Text = "Excluir";
             this.buttonExcluir.UseVisualStyleBackColor = true;
             // 
@@ -176,7 +177,7 @@ namespace SQLite
             this.buttonEditar.Location = new System.Drawing.Point(517, 35);
             this.buttonEditar.Name = "buttonEditar";
             this.buttonEditar.Size = new System.Drawing.Size(75, 23);
-            this.buttonEditar.TabIndex = 11;
+            this.buttonEditar.TabIndex = 5;
             this.buttonEditar.Text = "Editar";
             this.buttonEditar.UseVisualStyleBackColor = true;
             // 
