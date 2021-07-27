@@ -66,7 +66,7 @@ namespace SQLite
                 conectar.Open();
                 SQLiteCommand comando = new SQLiteCommand();
                 comando.Connection = conectar;
-                comando.CommandText = "CREATE TABLE pessoa (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, nome VARCHAR(64), sobrenome VARCHAR(64))";
+                comando.CommandText = "CREATE TABLE pessoa (id INT NOT NULL PRIMARY KEY, nome VARCHAR(64), sobrenome VARCHAR(64))";
                 comando.ExecuteNonQuery();
                 labelmsg.Text = labelmsg.Text + "Tabela criada SQLite";
                 comando.Dispose();
@@ -96,12 +96,12 @@ namespace SQLite
                 SQLiteCommand comando = new SQLiteCommand();
                 comando.Connection = conectar;
                 
-                //int id = new Random(DateTime.Now.Millisecond).Next(0,2048);//Temporario apenas para funcionar
+                int id = new Random(DateTime.Now.Millisecond).Next(0,2048);//Temporario apenas para funcionar
                 string nome = textBoxNome.Text;
                 string sobrenome = textBoxSobrenome.Text;
                 
-                comando.CommandText = "INSERT INTO pessoa(nome, sobrenome) VALUES " +
-                    "('" +nome +"', '" +sobrenome +"')";
+                comando.CommandText = "INSERT INTO pessoa VALUES " +
+                    "(" +id +", '" +nome +"', '" +sobrenome +"')";
                 comando.ExecuteNonQuery();
                 labelmsg.Text = labelmsg.Text + "Registro inserido SQLite";
                 comando.Dispose();
@@ -114,7 +114,6 @@ namespace SQLite
             {
                 conectar.Close();
             }
-            data();
         }
 
         private void buttonProcurar_Click(object sender, EventArgs e)
@@ -160,45 +159,7 @@ namespace SQLite
                 conectar.Close();
             }
         }
-        private void data()
-        {
 
-            dataGridViewSQLite.Rows.Clear();
-
-            string bancoDados = Application.StartupPath + @"\SQLite.db";
-            string conexao = @"Data Source = " + bancoDados + "; Version = 3";
-
-            labelmsg.Text = ": ";
-
-            SQLiteConnection conectar = new SQLiteConnection(conexao);
-
-            try
-            {
-                string query = "SELECT * FROM pessoa";
-
-                DataTable dados = new DataTable();
-
-                SQLiteDataAdapter adaptador = new SQLiteDataAdapter(query, conexao);
-
-                conectar.Open();
-
-                adaptador.Fill(dados);
-
-                foreach (DataRow linha in dados.Rows)
-                {
-                    dataGridViewSQLite.Rows.Add(linha.ItemArray);
-                }
-            }
-            catch (Exception ex)
-            {
-                dataGridViewSQLite.Rows.Clear();
-                labelmsg.Text = labelmsg.Text + "Erro ao inserir registro SQLite " + ex.Message;
-            }
-            finally
-            {
-                conectar.Close();
-            }
-        }
         private void buttonExcluir_Click(object sender, EventArgs e)
         {
             string bancoDados = Application.StartupPath + @"\SQLite.db";
@@ -214,7 +175,7 @@ namespace SQLite
                 SQLiteCommand comando = new SQLiteCommand();
                 comando.Connection = conectar;
 
-                int id = int.Parse(dataGridViewSQLite.SelectedRows[0].Cells[0].Value.ToString());
+                int id = (int)dataGridViewSQLite.SelectedRows[0].Cells[0].Value;
 
                 comando.CommandText = "DELETE FROM pessoa WHERE id = '" +id +"'";
                 comando.ExecuteNonQuery();
@@ -229,7 +190,6 @@ namespace SQLite
             {
                 conectar.Close();
             }
-            data();
         }
 
         private void buttonEditar_Click(object sender, EventArgs e)
@@ -247,7 +207,7 @@ namespace SQLite
                 SQLiteCommand comando = new SQLiteCommand();
                 comando.Connection = conectar;
 
-                int id =  int.Parse(dataGridViewSQLite.SelectedRows[0].Cells[0].Value.ToString());
+                int id = (int)dataGridViewSQLite.SelectedRows[0].Cells[0].Value;
                 string nome = textBoxNome.Text;
                 string sobrenome = textBoxSobrenome.Text;
 
@@ -267,15 +227,6 @@ namespace SQLite
             {
                 conectar.Close();
             }
-
-            data();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            textBoxNome.Clear();
-            textBoxSobrenome.Clear();
-            textBoxNome.Focus();
         }
     }
 }
