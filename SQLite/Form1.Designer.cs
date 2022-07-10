@@ -44,7 +44,6 @@ namespace SQLite
             this.textBoxSobrenome = new System.Windows.Forms.TextBox();
             this.buttonExcluir = new System.Windows.Forms.Button();
             this.buttonEditar = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSQLite)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,21 +71,18 @@ namespace SQLite
             this.id.FillWeight = 21.31979F;
             this.id.HeaderText = "ID";
             this.id.Name = "id";
-            this.id.ReadOnly = true;
             // 
             // nome
             // 
             this.nome.FillWeight = 139.3401F;
             this.nome.HeaderText = "NOME";
             this.nome.Name = "nome";
-            this.nome.ReadOnly = true;
             // 
             // sobrenome
             // 
             this.sobrenome.FillWeight = 139.3401F;
             this.sobrenome.HeaderText = "SOBRENOME";
             this.sobrenome.Name = "sobrenome";
-            this.sobrenome.ReadOnly = true;
             // 
             // labelmsg
             // 
@@ -189,22 +185,11 @@ namespace SQLite
             this.buttonEditar.UseVisualStyleBackColor = true;
             this.buttonEditar.Click += new System.EventHandler(this.buttonEditar_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(355, 9);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Limpar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(624, 321);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonEditar);
             this.Controls.Add(this.buttonExcluir);
             this.Controls.Add(this.textBoxSobrenome);
@@ -246,7 +231,6 @@ namespace SQLite
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn nome;
         private System.Windows.Forms.DataGridViewTextBoxColumn sobrenome;
-        private System.Windows.Forms.Button button1;
     }
 }
 
